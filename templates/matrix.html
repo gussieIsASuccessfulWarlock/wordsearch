@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrix of Words</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8">
+    <h2>Word Matrix</h2>
+    <table>
+        {% for row in matrix %}
+            <tr>
+                {% for cell in row %}
+                    <td><div class="bg-{{ cell.color }}-500 w-10 h-10 rounded-full aspect-square flex items-center justify-center {{ cell.border }}">{{ cell.letter.upper() }}</div></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <h3>Words:</h3>
+    <ul>
+        {% for word in words %}
+            <li class="text-{{ word.color }}-500">{{ word.word.upper() }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
